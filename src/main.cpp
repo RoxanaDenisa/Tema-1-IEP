@@ -16,7 +16,17 @@ class Student{
              cout<<"Constructor\n";
         }
         
-        
+        //Copy constructor
+        Student(const Student &obj){
+            varsta=obj.varsta;
+            nota_examen=obj.nota_examen;
+            nume=new char[strlen(obj.nume)+1];
+            strcpy(nume,obj.nume);
+            cout<<"Copy constructor\n";
+                         
+        }
+
+       
         
 };
 
