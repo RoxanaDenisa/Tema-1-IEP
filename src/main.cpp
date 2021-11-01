@@ -32,6 +32,20 @@ class Student{
             delete nume;
 
         }
+        int get_varsta(){
+            return varsta;
+        }
+        int get_notaExamen(){
+            return nota_examen;
+        }
+        void display(){
+             cout<<"Studentul "<<nume<<" a obtinut nota "<<nota_examen<<"\n";
+        }
+        void display(int age){
+             cout<<"Studentul "<<nume<< " cu varsta de "<<varsta<<" ani a obtinut nota "<<nota_examen<<"\n";
+        }
+        //Overloading la metoda display
+
         
         
 };
