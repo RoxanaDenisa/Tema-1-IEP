@@ -6,13 +6,15 @@ class Student{
         int varsta;
         char *nume;
         int nota_examen;
+        char gen;
     public:
         //Constructor
-        Student(int v, int g, char *n){
+        Student(int v, int g, char *n, char G){
             varsta=v;
             nota_examen=g;
             nume=new char[strlen(n)+1];
             strcpy(nume,n);
+            gen=G;
              cout<<"Constructor\n";
         }
         
@@ -20,6 +22,7 @@ class Student{
         Student(const Student &obj){
             varsta=obj.varsta;
             nota_examen=obj.nota_examen;
+            gen=obj.gen;
             nume=new char[strlen(obj.nume)+1];
             strcpy(nume,obj.nume);
             cout<<"Copy constructor\n";
@@ -39,10 +42,16 @@ class Student{
             return nota_examen;
         }
         void display(){
-             cout<<"Studentul "<<nume<<" a obtinut nota "<<nota_examen<<"\n";
+            if (gen=='M')
+                cout<<"Studentul "<<nume<<" a obtinut nota "<<nota_examen<<"\n";
+            else
+                 cout<<"Studenta "<<nume<<" a obtinut nota "<<nota_examen<<"\n";
         }
         void display(int age){
-             cout<<"Studentul "<<nume<< " cu varsta de "<<varsta<<" ani a obtinut nota "<<nota_examen<<"\n";
+             if (gen=='M')
+                 cout<<"Studentul "<<nume<< " cu varsta de "<<varsta<<" ani a obtinut nota "<<nota_examen<<"\n";
+            else
+                 cout<<"Studenta "<<nume<< " cu varsta de "<<varsta<<" ani a obtinut nota "<<nota_examen<<"\n";
         }
         //Overloading la metoda display
 
@@ -56,6 +65,7 @@ int main()
     int age;
     int grade;
     char name[20];
+    char genul;
 
     cout<<"Numele este ";
     cin>>name;
@@ -66,7 +76,10 @@ int main()
     cout<<"Nota este ";
     cin>>grade;
 
-    Student student1(age, grade, name);
+    cout<<"Genul este M/F:";
+    cin>>genul;
+
+    Student student1(age, grade, name, genul);
     //cout<<"Varsta studentului este "<<student1.get_varsta()<<"\n";
     //cout<<"Nota studentului este "<<student1.get_notaExamen()<<"\n";
     student1.display();
@@ -76,12 +89,22 @@ int main()
     int age2=10;
     int grade2=10;
     char name2[]="Valentin";
-    Student student2(age2,grade2,name2);
+    char gen2='M';
+    Student student2(age2,grade2,name2,gen2);
     student2.display();
+    /*
+        SAU REUTILIZAND TIPURILE DE DATE 
+        age=10;
+        grade=10;
+        strcpy(name, "Valentin");
+        genul='M';
+        Student student2(age2,grade2,name2,gen2);
+        student2.display();
+    */
 
     //Uilizarea copy-constructorului
     Student student3(student1);
     student3.display();
-
+    cout<<"Varsta este "<<student3.get_varsta()<<"\n";
     return 0;
 }
