@@ -52,7 +52,36 @@ class Student{
 
 int main()
 {
-   
+    //initializare dinamica
+    int age;
+    int grade;
+    char name[20];
+
+    cout<<"Numele este ";
+    cin>>name;
+
+    cout<<"Varsta este ";
+    cin>>age;
+
+    cout<<"Nota este ";
+    cin>>grade;
+
+    Student student1(age, grade, name);
+    //cout<<"Varsta studentului este "<<student1.get_varsta()<<"\n";
+    //cout<<"Nota studentului este "<<student1.get_notaExamen()<<"\n";
+    student1.display();
+    student1.display(age);
+  
+    //initializare statica, adica se cunoaste valoarea de la compilare
+    int age2=10;
+    int grade2=10;
+    char name2[]="Valentin";
+    Student student2(age2,grade2,name2);
+    student2.display();
+
+    //Uilizarea copy-constructorului
+    Student student3(student1);
+    student3.display();
 
     return 0;
 }
