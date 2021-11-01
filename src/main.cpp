@@ -26,7 +26,13 @@ class Student{
                          
         }
 
-       
+        //Destructor
+        ~Student(){
+            cout<<"Freeing\n";
+            delete nume;
+
+        }
+        
         
 };
 
