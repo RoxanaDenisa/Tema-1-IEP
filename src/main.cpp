@@ -46,7 +46,7 @@ class Student{
         }
         //Overloading la metoda display
 
-        
+        Student& operator=(const Student&)=delete;//disable copy-assignmnt
         
 };
 
